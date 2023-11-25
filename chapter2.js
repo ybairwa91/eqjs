@@ -34,8 +34,33 @@ if (num < 10) {
   console.log("Large");
 }
 
+//DISPATCHING IN JS USING SWITCH KEYWORD AND ITS WEIRD SYNTAX
 //alternative of if-else is switch but in certain cases
 //lets do a code
+/*
+let x;
+if (x == "value1") fun1();
+else if (x == "value2") fun2();
+else if (x == "value3") fun3();
+else defaultAction();
+*/
+let a;
+switch ((a = 10)) {
+  case (a = 5):
+    console.log(a);
+    break;
+  case (a = 14):
+    console.log(a);
+    break;
+  case (a = 10):
+    console.log(a);
+    break;
+  default:
+    console.log("provide correct value");
+    break;
+}
+
+//similar code with switch keyword
 
 //type of loops-to avoid repeatation.
 //1.for 2.do while 3.while loop
