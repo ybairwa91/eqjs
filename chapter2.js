@@ -109,3 +109,19 @@ for (let counter = 0; counter < 10; counter++) {
   result = result * 2;
 }
 console.log(result);
+
+//CHAPTER2--EXERCISE
+
+//Q2----FIZZBUZZ
+for (let k = 1; k <= 100; k++) {
+  if (k % 3 === 0 && k % 5 === 0) {
+    console.log("FizzBuzz");
+    console.log(k);
+  } else if (k % 3 === 0) {
+    console.log("Fizz");
+    console.log(k);
+  } else if (k % 5 === 0) {
+    console.log("Buzz");
+    console.log(k);
+  }
+}
