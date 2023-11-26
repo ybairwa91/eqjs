@@ -62,3 +62,70 @@ const hummus = function (factor) {
 };
 
 hummus(2);
+
+//Function as a value=function value can be reassigned bro
+
+/*
+let launchMissiles = function () {
+  missileSystem.launch("now");
+};
+if (safeMode) {
+  launchMissiles = function () {
+    // do nothing 
+  };
+}
+*/
+//see function binding name value has been reassigned in this programme
+let value = function (x, y) {
+  return Math.max(x, y);
+};
+console.log(value(2, 3));
+if (true) {
+  value = function (x, y) {
+    return Math.min(x, y);
+  };
+}
+console.log(value(2, 3));
+
+//what is function declaration==a easier way to create a function
+function squaree(x) {
+  return x * x;
+}
+//function declaration is not following top to bottom approach means u can define later and call earlier
+console.log("The future says", future());
+
+function future() {
+  return "You'll never have flying cars";
+}
+
+//ARROW FUNCTION--THIRD WAY TO DECALRE A FUNCTION
+//Arrow after parameters
+//body in curly braces after arrow\
+// can avoid bracket if only one parantheses.
+//can avoid curly braces if only one statement or expression
+
+//
+const squareee = (x) => {
+  return x * x;
+};
+//
+const squareeee = (x) => x * x;
+
+//
+let result = 1;
+const powerr = (base, exponent) => {
+  for (let i = 0; i < exponent; i++) {
+    // result = result * base;
+    result *= base;
+  }
+  console.log(result);
+};
+powerr(2, 10);
+
+//when no parameters
+
+const horn = () => {
+  console.log("Toot");
+};
+
+//THE CALL STACK
