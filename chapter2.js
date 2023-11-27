@@ -1,3 +1,5 @@
+"use strict";
+
 isNaN(10); //false
 isNaN("10"); //true
 //but
@@ -111,6 +113,12 @@ for (let counter = 0; counter < 10; counter++) {
 console.log(result);
 
 //CHAPTER2--EXERCISE
+//  Q1.star related problems
+
+//example1
+for (let i = 0; i < 7; i++) {
+  console.log("*");
+}
 
 //Q2----FIZZBUZZ
 for (let k = 1; k <= 100; k++) {

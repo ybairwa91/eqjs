@@ -277,3 +277,17 @@ function multiplier(factor) {
 let twice = multiplier(2);
 // console.log(twice);
 console.log(twice(5)); //10 ayega
+
+// =======RECURSION=======
+
+///FUNCTION CALL ITSELF IS RECURSION
+
+function powers(base, exponent) {
+  if (exponent == 0) {
+    return 1;
+  } else {
+    return base * powers(base, exponent - 1);
+  }
+}
+
+console.log(powers(2, 0));
