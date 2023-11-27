@@ -166,5 +166,60 @@ function powers(base, exponent = 2) {
   return rslt;
 }
 
-console.log(powers(2)); //by default since exponent is undefined it will take 2 as default value
+console.log(powers(2)); //since exponent is undefined it will take 2 as default value
 console.log(powers(2, 3)); //no need to take default value.
+
+//THE CALL STACK
+//call stack: when we call function from another function that time this calling process goes into the call stack//
+
+//CALL STACK track the execution or flow of function meant to say which function is now executing now and tell the order as well
+
+//example1
+function greet(who) {
+  console.log("hello " + who);
+}
+greet("harry");
+
+//how code execute ,it will ignore function defined since nothing to execute btw(179-181) now 182 code line start to execute and it will call function greet back to line 179
+//now in call stack list:greet
+//now function console the value and now who value requires to go back to line 182 to fetch harry argument and now again goes back to line 180 and function returns hello harry
+//hence function execution is completed and call stack list now empty and greet is pop out
+//call stack list:empty
+
+//example2
+function greeting() {
+  sayHi();
+}
+function sayHi() {
+  return "Hi!";
+}
+
+// Invoke the `greeting` function
+greeting();
+
+//how call stack works here
+
+//greeting() executes---call function greetting()
+//CALL STACK LIST:greeting
+
+//greeting run call sayHi() function
+//CALL STACK LIST:sayHi - greeting(in grid pattern)
+
+//sayHi() execute and now again we goes back to function greeting
+//CALL STACK LIST:greeting  (since sayHi now pop out )
+
+//greeting also ends
+//CALL STACK LIST:EMPTY(SINCE both execution ends and no function is running now).
+
+//How stack become overflow
+function chicken() {
+  return egg();
+}
+
+function egg() {
+  return chicken();
+}
+
+console.log(chicken() + "Came first"); // this will cause a Stack Overflow error because it's an infinite loop of calling each other.
+
+//TOPIC===CLOSURE===
