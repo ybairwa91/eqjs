@@ -129,3 +129,42 @@ const horn = () => {
 };
 
 //THE CALL STACK
+function greet(who) {
+  console.log("Hello " + who);
+}
+greet("Harry");
+console.log("Bye");
+
+//Optional arguments
+
+//1.if arguments are extra then it will be simple ignored by js engine
+function findSquare(x) {
+  return x * x;
+}
+console.log(findSquare(4, true, "hedgehog"));
+
+//if more parameters and argument is not defined then it will simply render undefined
+function findSquares(x, y) {
+  console.log(x * x, y);
+}
+findSquares(2); //it will show 4 undefined(since no y argument)
+
+function minus(a, b) {
+  if (b === undefined) return -a;
+  else return a - b;
+}
+console.log(minus(2)); //-2
+console.log(minus(2, 1)); //1
+
+//default parameter-you can assign default values of parameters in case of user didnot assigned the argument
+
+function powers(base, exponent = 2) {
+  let rslt = 1;
+  for (let i = 0; i < exponent; i++) {
+    rslt = rslt * base;
+  }
+  return rslt;
+}
+
+console.log(powers(2)); //by default since exponent is undefined it will take 2 as default value
+console.log(powers(2, 3)); //no need to take default value.
