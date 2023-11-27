@@ -212,6 +212,7 @@ greeting();
 //CALL STACK LIST:EMPTY(SINCE both execution ends and no function is running now).
 
 //How stack become overflow
+/*
 function chicken() {
   return egg();
 }
@@ -222,4 +223,57 @@ function egg() {
 
 console.log(chicken() + "Came first"); // this will cause a Stack Overflow error because it's an infinite loop of calling each other.
 
+*/
+
+/*
 //TOPIC===CLOSURE===
+..see when we create a function then its local bindings which are declared inside of function ,this facts gives us something intersting to note down
+
+//first learn this thing that function can be stored in another binding means
+
+*/
+function outerfunction() {
+  let x = "I am a variable inside outerfunction";
+  function innerFunction() {
+    console.log("x is " + x);
+  }
+  return innerFunction;
+}
+let myInnerFunc = outerfunction(); //it holds now innerFunction
+console.log(myInnerFunc);
+
+//how to call now innerFunction--since myInnerFunc binding is holding whole innerFunction definition lets do this
+myInnerFunc();
+
+//this is prime example of closure
+//see x still accesse by innerFunction which is in lexicon scope of innerFunction
+
+//hence whenever a function is defined it created it lexican environment evry time means whenevr u call a function it has its own environment which has property like lexican scoping so it will access all the varibles and bindings
+//closure is when the function has access to its own scope, even after it gets executed outside of its scope.
+
+//examples
+
+function wrapValue(n) {
+  let local = n;
+  return () => local;
+}
+
+//
+let wrap1 = wrapValue(1);
+let wrap2 = wrapValue(2);
+console.log(wrap1());
+console.log(wrap2());
+
+//means function ke ander ek function hai or hum agar sirf ander wale ko access karo to uske pass sari values ka access hoga jo uske enviroment me hai matlab ki lexican scoping ke through wali bhi.all outerfunction value and globalwali  to hai hi.
+
+//another example to use closure for out useful purpose
+function multiplier(factor) {
+  function numbers(number) {
+    return number * factor;
+  }
+  return numbers;
+}
+
+let twice = multiplier(2);
+// console.log(twice);
+console.log(twice(5)); //10 ayega
