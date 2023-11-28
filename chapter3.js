@@ -281,13 +281,34 @@ console.log(twice(5)); //10 ayega
 // =======RECURSION=======
 
 ///FUNCTION CALL ITSELF IS RECURSION
+//one drawback of recursive function over loop is that its slower and not efficient most of the time.
 
-function powers(base, exponent) {
+function powerss(base, exponent) {
   if (exponent == 0) {
     return 1;
   } else {
-    return base * powers(base, exponent - 1);
+    return base * powerss(base, exponent - 1);
   }
 }
+console.log(powerss(2, 10));
 
-console.log(powers(2, 0));
+//find any number with using 3 and 5
+function findSolution(target) {
+  function find(current, history) {
+    if (current == target) {
+      return history;
+    } else if (current > target) {
+      return null;
+    } else {
+      return (
+        find(current + 5, `(${history}+5)`) ||
+        find(current * 3, `(${history}*3)`)
+      );
+    }
+  }
+  return find(1, "1");
+}
+
+console.log(findSolution(24));
+// (((1*3)+5)*3)
+console.log(findSolution(13));
