@@ -312,3 +312,104 @@ function findSolution(target) {
 console.log(findSolution(24));
 // (((1*3)+5)*3)
 console.log(findSolution(13));
+
+//Some more problems using recursion function
+
+//1.factorial
+
+function findFactorial(n) {
+  if (n === 0) {
+    return 1;
+  } else {
+    return n * findFactorial(n - 1);
+  }
+}
+console.log(findFactorial(4));
+
+//FUNCTION AND ITS GOOD PRACTICES
+
+//1.function of counting chicken and cows in farm with always three digits long
+function printFarmInventory(cows, chicken) {
+  let cowString = String(cows);
+  //lets do looping
+  while (cowString.length < 3) {
+    cowString = "0" + cowString;
+  }
+  console.log(`${cowString} Cows`);
+  //
+  let chickenString = String(chicken);
+  //lets do looping
+  while (chickenString.length < 3) {
+    chickenString = "0" + chickenString;
+  }
+  console.log(`${chickenString} Chicken`);
+}
+printFarmInventory(7, 11);
+
+//now add pigs in it
+
+function printZeroPaddedWithLabel(number, label) {
+  let numberString = String(number);
+
+  while (numberString.length < 3) {
+    numberString = "0" + numberString;
+  }
+  console.log(`${numberString} ${label}`);
+}
+
+function printFarmInventorys(cows, chicken, pigs) {
+  printZeroPaddedWithLabel(cows, "Cows");
+  printZeroPaddedWithLabel(chicken, "Chickens");
+  printZeroPaddedWithLabel(pigs, "Pigs");
+}
+
+printFarmInventorys(7, 11, 13);
+
+//lets make it more efficient
+
+function zeroPad(number, width) {
+  let string = String(number);
+
+  //
+  while (string.length < width) {
+    string = "0" + string;
+  }
+  return string;
+}
+
+function printFarmInventoryss(cows, chicken, pigs) {
+  console.log(`{zeroPad(cows,3)} Cows`);
+  console.log(`{zeroPad(chicken,3)} Chicken`);
+  console.log(`{zeroPad(pigs,3)} Pigs`);
+}
+
+//summary
+
+//function expression
+const f = function (a) {
+  console.log(a + 2);
+};
+
+//function declare
+function g(a, b) {
+  return a * b * 3.5;
+}
+
+//arrow function
+let h = (a) => a % 3;
+
+//EXERCISES
+//Q1-MINIMUM
+
+function mathMin(a, b) {
+  if (a === b) {
+    return "Both are equal";
+  } else if (a < b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+console.log(mathMin(2, 2));
+
+//Q2=RECURSION
