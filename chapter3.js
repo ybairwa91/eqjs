@@ -413,3 +413,47 @@ function mathMin(a, b) {
 console.log(mathMin(2, 2));
 
 //Q2=RECURSION
+
+function isEven(w) {
+  if (w < 0) {
+    w = -w;
+  }
+
+  if (w === 0) {
+    return true;
+  } else if (w === 1) {
+    return false;
+  } else {
+    return isEven(w - 2);
+  }
+}
+
+console.log(isEven(75));
+console.log(isEven(-1));
+
+//Q3-Bean counting
+let positions = [];
+function countBs(inputString) {
+  for (let i = 0; i < inputString.length; i++) {
+    if (inputString[i] === "B") {
+      positions.push(i);
+    }
+  }
+  console.log(` 'B' is placed in the string for ${positions.length} times`);
+}
+countBs("BolBachan");
+
+//Q3-SECOND PART
+let position = [];
+function countChar(inputString, charToCount) {
+  for (let i = 0; i < inputString.length; i++) {
+    if (inputString[i] === charToCount) {
+      position.push(i);
+    }
+  }
+  console.log(
+    ` ${charToCount} is placed in the string for ${position.length} times`
+  );
+}
+
+countChar("broTher", "b");
