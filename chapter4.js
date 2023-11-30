@@ -38,3 +38,37 @@ sequence.push(4); //add 4 in last index,argument must
 console.log(sequence);
 sequence.pop(); //no arguments required
 console.log(sequence);
+
+////OBJECTS
+let day1 = {
+  squirrel: false,
+  events: ["work", "touched tree", "pizza", "running"],
+};
+console.log(day1.squirrel); //false
+console.log(day1.wolf); //undefined
+day1.wolf = false; //added wolf property in object day1
+console.log(day1.wolf); //now false
+
+let description = {
+  work: "went to work",
+  "touched tree": "Touched a tree",
+};
+//we cant access spaced property using dot notation so here we go using []
+// console.log(description.touched tree)
+console.log(description["touched tree"]);
+console.log(description.work);
+
+//DELETE OPERATOR==unary operator delete the property
+let anObject = { left: 1, right: 2 };
+console.log(anObject);
+//snytax
+delete anObject.left;
+console.log(anObject); //only right property at o index
+console.log(anObject.left); //undefined,since left is deleted..
+
+//in operator in string and object
+console.log("left" in anObject); //false
+console.log("right" in anObject); //true
+
+//how many properties do objects have,here is a shortcut to check
+console.log(anObjects.key());
