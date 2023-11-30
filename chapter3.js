@@ -1,3 +1,5 @@
+`use strict`;
+
 //++++++++++++++++++++++FUNCTION+++++++++++++++++
 
 //function-a piece of program in a value
@@ -418,7 +420,6 @@ function isEven(w) {
   if (w < 0) {
     w = -w;
   }
-
   if (w === 0) {
     return true;
   } else if (w === 1) {
@@ -437,6 +438,7 @@ function countBs(inputString) {
   for (let i = 0; i < inputString.length; i++) {
     if (inputString[i] === "B") {
       positions.push(i);
+      console.log(` 'B' is at,${i}`);
     }
   }
   console.log(` 'B' is placed in the string for ${positions.length} times`);
@@ -457,3 +459,39 @@ function countChar(inputString, charToCount) {
 }
 
 countChar("broTher", "b");
+
+//Q3 in more simplified version
+
+let count = 0;
+function countBsNew(inputString) {
+  for (let i = 0; i < inputString.length; i++) {
+    if (inputString[i] === "B") {
+      count++;
+    }
+  }
+  console.log(count);
+}
+countBsNew("BadBoys");
+
+function countCharNew(inputString, charToCount) {
+  countBsNew(inputString);
+}
+
+//Q.3 lets show u the magic of recursion now in same qn
+
+let counting;
+function countCharRec(inputString, char) {
+  for (let i = 0; i < inputString.length; i++) {
+    if (inputString[i] === char) {
+      counting++;
+    }
+  }
+  console.log(counting);
+}
+
+function countBsRec(inputStringB) {
+  return countCharRec(inputStringB, "B");
+}
+
+countCharRec("bigDaddy", "D");
+countBsRec("BigDaddy");
