@@ -317,19 +317,55 @@ function randomPointCircle(radius) {
 console.log(randomPointCircle(2));
 
 //JSON
-// {
-//   "squirrel"  : false,
-//   "events" : ["work","touched tree","pizza","running"]
-
-// }
-
-let string = JSON.stringify({
-  squirrel: false,
-  events: ["weekend"],
-});
-
-console.log(string);
-
-console.log(JSON.parse(string).events);
-
+//snytax
 //json cant accept function,date and undefined as a value
+
+//lets see how text is store in json
+//this is text
+let text = '{"name":"John", "age":30, "city":"New York"}';
+//how text is basically a json file store data of a person
+//how to convert text json in object is using parse property
+//how to parse
+const myjson = JSON.parse(text);
+console.log(myjson);
+
+console.log(myjson.name);
+console.log(myjson.age);
+console.log(myjson.city);
+
+//what is stringify now in json as a property
+//what if we have object in json
+
+const obj = { name: "John", age: 30, city: "New York" };
+
+const str = JSON.stringify(obj);
+console.log(str);
+console.log(str.length);
+
+//stringfy an array as well
+const arrj = ["John", "Peter", "Sally", "Jane"];
+const strJ = JSON.stringify(arrj);
+console.log(strJ.length);
+
+//Exercise
+
+//Q.1)THE sum of the range
+
+let arrToLog = [];
+function range(start, end) {
+  for (let i = start; i <= end; i++) {
+    arrToLog.push(i);
+  }
+  return arrToLog;
+}
+
+//fuction sum
+let final = 0;
+function sum(arrSumIs) {
+  for (let i = 0; i < arrSumIs.length; i++) {
+    final = arrSumIs[i] + final;
+  }
+  return final;
+}
+
+console.log(sum(range(1, 10)));
