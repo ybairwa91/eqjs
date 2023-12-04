@@ -351,17 +351,21 @@ console.log(strJ.length);
 
 //Q.1)THE sum of the range
 
-let arrToLog = [];
-function range(start, end) {
-  for (let i = start; i <= end; i++) {
+function range(start, end, step = 1) {
+  let arrToLog = [];
+
+  for (let i = start; i <= end; i = i + step) {
     arrToLog.push(i);
   }
   return arrToLog;
 }
+console.log(range(1, 10));
+console.log(range(1, 10, 2));
+console.log(range(1, 10, 3));
 
 //fuction sum
-let final = 0;
 function sum(arrSumIs) {
+  let final = 0;
   for (let i = 0; i < arrSumIs.length; i++) {
     final = arrSumIs[i] + final;
   }
@@ -369,3 +373,7 @@ function sum(arrSumIs) {
 }
 
 console.log(sum(range(1, 10)));
+console.log(sum(range(1, 10, 2)));
+console.log(sum(range(1, 10, 3)));
+
+//Q.2 REVERSE AN ARRAY
