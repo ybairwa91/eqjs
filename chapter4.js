@@ -285,3 +285,51 @@ const arrayTwo = [1, 2, 3, 4];
 console.log(...arrayTwo); //convert array into arguments
 
 //rest parameter takes infinite arguments
+
+function max(...numbers) {
+  let result = -Infinity; //it takes minus argumnts as well
+  for (let number of numbers) {
+    if (number > result) result = number;
+  }
+  return result;
+}
+console.log(max(4, 1, 9, -2));
+
+let numbers = [1, 10, 12];
+console.log(max(...numbers));
+
+//this is also possible
+console.log(max(2, 50, ...numbers));
+
+//this is also
+const alpha = ["power", "made"];
+console.log("words", ...alpha, "easy");
+
+//THE MATH object
+
+function randomPointCircle(radius) {
+  let angle = Math.random() * 2 * Math.PI;
+  return {
+    x: radius * Math.cos(angle),
+    y: radius * Math.sin(angle),
+  };
+}
+console.log(randomPointCircle(2));
+
+//JSON
+// {
+//   "squirrel"  : false,
+//   "events" : ["work","touched tree","pizza","running"]
+
+// }
+
+let string = JSON.stringify({
+  squirrel: false,
+  events: ["weekend"],
+});
+
+console.log(string);
+
+console.log(JSON.parse(string).events);
+
+//json cant accept function,date and undefined as a value
