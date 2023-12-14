@@ -116,12 +116,19 @@ console.log(result);
 //  Q1.star related problems
 
 //example1
+//Star pattern questions
+//using repeat method
 for (let i = 0; i < 7; i++) {
-  console.log("*");
+  for (let j = 0; j < 7; j++) {
+    if (i == j) {
+      console.log("*".repeat(i));
+    }
+  }
 }
+//without any string method
 
 //Q2----FIZZBUZZ
-for (let k = 1; k <= 100; k++) {
+for (let k = 1; k <= 10; k++) {
   if (k % 3 === 0 && k % 5 === 0) {
     console.log("FizzBuzz");
     console.log(k);
@@ -133,3 +140,15 @@ for (let k = 1; k <= 100; k++) {
     console.log(k);
   }
 }
+
+//SOME STAR PATTERN QUESTIONS
+//Q.1 SQUARE STAR
+/*
+ *****
+ *****
+ *****
+ *****
+ *****
+ */
+
+for (let i = 0; i < 5; i++) {}

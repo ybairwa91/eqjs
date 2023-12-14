@@ -222,3 +222,38 @@ function tableFor(event, journal) {
 }
 
 console.log(tableFor("pizza", journalOfJac));
+
+//QUESTIONS
+//Q.1==SUM OF RANGE
+
+function range(start, end, step = 1) {
+  let anArray = [];
+  for (let i = start; i <= end; i = i + step) {
+    anArray.push(i);
+  }
+  return anArray;
+}
+
+console.log(range(1, 10));
+console.log(range(1, 10, 2));
+
+const sum = function (anArray) {
+  let result = 0;
+  for (let i = 0; i < anArray.length; i++) {
+    result = anArray[i] + result;
+  }
+  return result;
+};
+
+console.log(sum(range(1, 10)));
+
+//Q.2 Reversing an array
+const reverseArray = function (arrayA) {
+  // let arrayA = [];
+  for (let i = arrayA.length - 1; i <= 0; i--) {
+    arrayA.push(i);
+  }
+  return arrayA;
+};
+
+console.log(reverseArray([1, 2, 3, 4, 5]));
