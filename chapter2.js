@@ -113,19 +113,24 @@ for (let counter = 0; counter < 10; counter++) {
 console.log(result);
 
 //CHAPTER2--EXERCISE
-//  Q1.star related problems
+//  Q1.hash related problems
 
 //example1
-//Star pattern questions
+//hash pattern questions
 //using repeat method
 for (let i = 0; i < 7; i++) {
   for (let j = 0; j < 7; j++) {
     if (i == j) {
-      console.log("*".repeat(i));
+      console.log("#".repeat(i));
     }
   }
 }
 //without any string method
+let hash = " ";
+for (let i = 1; i < 7; i++) {
+  hash += "#";
+  console.log(hash);
+}
 
 //Q2----FIZZBUZZ
 for (let k = 1; k <= 10; k++) {
@@ -140,6 +145,7 @@ for (let k = 1; k <= 10; k++) {
     console.log(k);
   }
 }
+//Q.3 MAKE A CHESSBOARD
 
 //SOME STAR PATTERN QUESTIONS
 //Q.1 SQUARE STAR
@@ -150,5 +156,12 @@ for (let k = 1; k <= 10; k++) {
  *****
  *****
  */
+let string = " ";
+for (let i = 0; i < 5; i++) {
+  for (let j = 0; j < 5; j++) {
+    string += "*";
+  }
 
-for (let i = 0; i < 5; i++) {}
+  string += "\n";
+}
+console.log(string);
