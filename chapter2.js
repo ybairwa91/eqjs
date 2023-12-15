@@ -146,12 +146,22 @@ for (let k = 1; k <= 10; k++) {
   }
 }
 //Q.3 MAKE A CHESSBOARD
-
-let string = " ";
-let space = "";
-for (let i = 0; i < 8; i++) {
-  for (let j = 0; j < 8; j++) {}
+let pattern = "";
+for (
+  let row = 2;
+  row < 10;
+  row++ //to make 8 rows \
+) {
+  for (
+    let column = 1;
+    column < 5;
+    column++ //to make 4 column
+  ) {
+    row % 2 === 0 ? (pattern += "#" + " ") : (pattern += " " + "#");
+  }
+  pattern += "\n";
 }
+console.log(pattern);
 
 //SOME STAR PATTERN QUESTIONS
 //Q.1 SQUARE STAR
