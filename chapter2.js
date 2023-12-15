@@ -147,6 +147,12 @@ for (let k = 1; k <= 10; k++) {
 }
 //Q.3 MAKE A CHESSBOARD
 
+let string = " ";
+let space = "";
+for (let i = 0; i < 8; i++) {
+  for (let j = 0; j < 8; j++) {}
+}
+
 //SOME STAR PATTERN QUESTIONS
 //Q.1 SQUARE STAR
 /*
@@ -156,12 +162,12 @@ for (let k = 1; k <= 10; k++) {
  *****
  *****
  */
-let string = " ";
+let strings = " ";
 for (let i = 0; i < 5; i++) {
   for (let j = 0; j < 5; j++) {
-    string += "*";
+    strings += "*";
   }
 
-  string += "\n";
+  strings += "\n";
 }
-console.log(string);
+console.log(strings);
