@@ -1,9 +1,15 @@
 //++++++++++HIGHER ORDER FUNCTION++++++++++
 
+`use strict`;
+
+import SCRIPTS from "./script";
+
+//topic==complexity
+
 //lets take two programmes to find sum of given range
 //first
 let total = 0;
-count = 1;
+let count = 1;
 
 while (count <= 10) {
   total = total + count;
@@ -60,3 +66,45 @@ let greaterThan10 = greaterThan(10);
 console.log(greaterThan10(11));
 console.log(greaterThan10(10));
 console.log(greaterThan10(9));
+
+//
+function noisy(f) {
+  return (...args) => {
+    console.log("calling with", f, args);
+    let result = f(...args);
+    console.log("calling with", args, ",returned", result);
+    return result;
+  };
+}
+
+noisy(Math.min)(3, 2, 1);
+
+//
+function unless(test, then) {
+  if (!test) then();
+}
+
+repeat(3, (n) => {
+  unless(n % 2 == 1, () => {
+    console.log(n, "is even");
+  });
+});
+
+//built in method====forEach
+
+["A", "B"].forEach((p) => console.log(p)); //gives A AND B
+
+//Script Data set
+
+//Filtering Arrays
+function filter(array, test) {
+  let passed = [];
+  for (let element of array) {
+    if (test(element)) {
+      passed.push(element);
+    }
+  }
+  return passed;
+}
+
+console.log(filter(SCRIPTS, (script) => script.living));

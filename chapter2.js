@@ -147,16 +147,8 @@ for (let k = 1; k <= 10; k++) {
 }
 //Q.3 MAKE A CHESSBOARD
 let pattern = "";
-for (
-  let row = 2;
-  row < 10;
-  row++ //to make 8 rows \
-) {
-  for (
-    let column = 1;
-    column < 5;
-    column++ //to make 4 column
-  ) {
+for (let row = 2; row < 10; row++) {
+  for (let column = 1; column < 5; column++) {
     row % 2 === 0 ? (pattern += "#" + " ") : (pattern += " " + "#");
   }
   pattern += "\n";
