@@ -1978,7 +1978,7 @@ if (
   module.exports = SCRIPTS;
 if (typeof global != "undefined" && !global.SCRIPTS) global.SCRIPTS = SCRIPTS;
 
-export default SCRIPTS;
+
 
 //Filtering Arrays
 function filter(array, test) {
@@ -2014,3 +2014,16 @@ const resultingArray = words.filter(function (kuchbhi) {
 });
 
 console.log(resultingArray);
+
+
+
+//TRANSFORMING WITH MAP
+function map(map,transform){
+  let mapped=[]
+  for(let element of array){
+    mapped.push(transform(element))
+  }
+  return mapped
+}
+
+let rtlScripts=SCRIPTS.filter(s=>s.direction=='rtl')
