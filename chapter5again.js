@@ -1,98 +1,4 @@
-//++++++++++HIGHER ORDER FUNCTION++++++++++
-
-`use strict`;
-
-//topic==complexity
-
-//lets take two programmes to find sum of given range
-//first
-let total = 0;
-let count = 1;
-
-while (count <= 10) {
-  total = total + count;
-  count++;
-}
-console.log(total);
-
-//second
-// console.log(sum(range(1, 10))); we solved it in last chapter
-
-//now second programme is easy to read and less vagueness so attracts less bugs
-
-//++++++ABSTRACTION++++++++++
-//IT HIDE DETAILS BASICALLY
-//SO WE CAN THINK AND WORK ON HIGHER LEVEL RATHAR THAN THINKING OF EVRY MINUTE DETAILS
-
-//examples of abstraction
-for (let i = 0; i < 10; i++) {
-  console.log(i);
-}
-//but
-function repeatLog(n) {
-  for (let i = 0; i < n; i++) {
-    console.log(i);
-  }
-}
-//now
-repeatLog(10);
-
-//lets do something more
-function repeat(n, action) {
-  for (let i = 0; i < n; i++) {
-    action(i);
-  }
-}
-repeat(3, console.log);
-
-//
-let labels = [];
-repeat(5, (i) => {
-  labels.push(`units ${i + 1}`);
-});
-console.log(labels);
-
-//HIGHER ORDER FUNCTION===>allow us to do abstraction in a better way
-//function are just regular values bro
-//function are basically values wrapped in a code to excute anytime we want to
-//when a function takes other function as an argument or output it mainly defined as an higher order function
-
-function greaterThan(n) {
-  return (m) => m > n;
-}
-let greaterThan10 = greaterThan(10);
-console.log(greaterThan10(11));
-console.log(greaterThan10(10));
-console.log(greaterThan10(9));
-
-//
-function noisy(f) {
-  return (...args) => {
-    console.log("calling with", f, args);
-    let result = f(...args);
-    console.log("calling with", args, ",returned", result);
-    return result;
-  };
-}
-
-noisy(Math.min)(3, 2, 1);
-
-//
-function unless(test, then) {
-  if (!test) then();
-}
-
-repeat(3, (n) => {
-  unless(n % 2 == 1, () => {
-    console.log(n, "is even");
-  });
-});
-
-//built in method====forEach
-
-["A", "B"].forEach((p) => console.log(p)); //gives A AND B
-
-//Script Data set
+//higher order function
 var SCRIPTS = [
   {
     name: "Adlam",
@@ -1968,194 +1874,36 @@ var SCRIPTS = [
   },
 ];
 
-// This makes sure the data is exported in node.js —
-// `require('./path/to/scripts.js')` will get you the array.
-if (
-  typeof module != "undefined" &&
-  module.exports &&
-  (typeof window == "undefined" || window.exports != exports)
-)
-  module.exports = SCRIPTS;
-if (typeof global != "undefined" && !global.SCRIPTS) global.SCRIPTS = SCRIPTS;
-
-//Filtering Arrays
-function filter(array, test) {
-  let passed = [];
-  for (let element of array) {
-    if (test(element)) {
-      passed.push(element);
-    }
-  }
-  return passed;
-}
-
-console.log(filter(SCRIPTS, (script) => script.living));
-//this is how filter method works
-//now onwards use it directly like this
-
-//it create a new array and doesnot alter the basic array where we applying filter method
-
-console.log(SCRIPTS.filter((s) => s.direction === "ttb"));
-
-//FILTER METHOD
-const words = ["spray", "elite", "exuberant", "destruction", "present"];
-const result = words.filter(function (w) {
-  return w.length > 1;
-});
-console.log(result);
-// Expected output: Array ["exuberant", "destruction", "present"]
-
-//arrayName.filter(callback fn)
-
-const resultingArray = words.filter(function (kuchbhi) {
-  return kuchbhi.length < 6;
-});
-
-console.log(resultingArray);
-
-//TRANSFORMING WITH MAP
-function map(array, transform) {
-  let mapped = [];
-  for (let element of array) {
-    mapped.push(transform(element));
-  }
-  return mapped;
-}
-
-let rtlScripts = SCRIPTS.filter((s) => s.direction == "rtl");
-console.log(map(rtlScripts, (s) => s.name));
-
-// Array of objects
-const people = [
-  { name: "Alice", age: 25 },
-  { name: "Bob", age: 30 },
-  { name: "Charlie", age: 22 },
-];
-
-console.log(people.filter((e) => e.age > 22));
-
-function age(array, task) {
-  let filters = [];
-  for (let element of array) {
-    if (task(element)) filters.push(element);
-  }
-  return filters;
-}
-
-console.log(age(people, (e) => e.age > 22));
-
-//direct
-console.log(people.filter((e) => e.age > 22));
-
-//Mapping-here we task whole array and get whole array with refinement and not filter some element unlike filter method
-function ageIs(array, task) {
-  let mapped = [];
-  for (let element of array) {
-    mapped.push(task(element));
-  }
-  return mapped;
-}
-
-console.log(ageIs(people, (e) => e.name));
-
-//Direct
-console.log(people.map((people) => people.name));
-
-//Reduce method or FOLD method
-//it basically a simple way of recuring,means it take whole array element one by one and simply return only one value
-//basically reduce all parameters into one.
-
-function reduce(array, combine, start) {
-  let current = start;
-  for (let element of array) {
-    current = combine(current, element);
-  }
-  return current;
-}
-
-console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0));
-
-//by using reduce method directly
-console.log([1, 2, 3, 4].reduce((a, b) => a + b));
-
-//let use reduce twice
-function characterCount(script) {
-  return script.ranges.reduce((count, [from, to]) => {
-    return count + (to - from);
-  }, 0);
-}
 console.log(
-  SCRIPTS.reduce((a, b) => {
-    return characterCount(a) < characterCount(b) ? b : a;
+  SCRIPTS.map(function (A) {
+    return A.direction;
   })
 );
 
-//reduce mthod
-console.log([1, 2, 3].reduce((a, b) => a - b, 1));
-console.log([1, 2, 3].reduce((a, b) => a / b));
-console.log([1, 2, 3].reduce((a, b) => a + b));
-console.log([1, 2, 3].reduce((a, b) => a + b, 10));
-
-
-
-//COMPOSABILITY
-let biggest = null;
-for (let script of SCRIPTS) {
-  if (biggest == null || characterCount(biggest) < characterCount(script)) {
-    biggest = script;
-  }
-}
-
-console.log(biggest);
+//filter
+console.log(SCRIPTS.filter((a) => a.year > 1800));
 
 //
-function average(array) {
-  return array.reduce((a, b) => a + b) / array.length;
-}
+let cities = [
+  { name: "Los Angeles", population: 3792621 },
+  { name: "New York", population: 8175133 },
+  { name: "Chicago", population: 2695598 },
+  { name: "Houston", population: 2099451 },
+  { name: "Philadelphia", population: 1526006 },
+];
 
-console.log(
-  Math.round(average(SCRIPTS.filter((s) => s.living).map((s) => s.year)))
-);
-console.log(
-  Math.round(average(SCRIPTS.filter((s) => !s.living).map((s) => s.year)))
-);
-
-//
-let totals = 0,
-  counts = 0;
-for (let script of SCRIPTS) {
-  if (script.living) {
-    totals += script.year;
-    counts += 1;
+//lets make a programme to find all the cities who does have population more than 3 million
+let newArr = [];
+for (let element of cities) {
+  if (element.population > 3000000) {
+    // console.log(element);
+    newArr.push(element);
   }
 }
-console.log(Math.round(totals / counts));
+console.log(newArr);
 
-//String and character codes
-// {
-//   name: "Adlam",
-//   ranges: [
-//     [125184, 125259],
-//     [125264, 125274],
-//     [125278, 125280],
-//   ],
-//   direction: "rtl",
-//   year: 1987,
-//   living: true,
-//   link: "https://en.wikipedia.org/wiki/Fula_alphabets#Adlam_alphabet",
-// }
+//same using filter method
+let newArray = cities.filter((element) => element.population > 3000000);
+console.log(newArray);
 
-function characterScript(code) {
-  for (let script of SCRIPTS) {
-    if (
-      script.ranges.some(([from, to]) => {
-        return code >= from && code < to;
-      })
-    ) {
-      return script;
-    }
-  }
-  return null;
-}
-
-console.log(characterScript(121));
+//this is what abstraction is
