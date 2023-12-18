@@ -1874,6 +1874,45 @@ var SCRIPTS = [
   },
 ];
 
+let arrayIs = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
+
+console.log(arrayIs.reduce((acu, [x, y]) => acu + x + y, 0));
+
+//reduce method
+//you want to make a value from an array.then here it is that what reduce method is meant for
+let numbers = [1, 2, 3];
+//question is you want to calculate the total of elements of the array.
+
+// lets do
+let result = 0;
+for (let element of numbers) {
+  result += element;
+}
+console.log(result);
+
+//by reduce method
+let sumIs = numbers.reduce(
+  (prevValue, currentVal) => prevValue + currentVal,
+  0
+);
+console.log(sumIs);
+
+//
+function characterCount(script) {
+  return script.ranges.reduce((count, [from, to]) => {
+    return count + (to - from);
+  }, 0);
+}
+
+for (let element of SCRIPTS) {
+  console.log(characterCount(element));
+}
+// console.log(SCRIPTS.reduce((a,b)=>))
+
 console.log(
   SCRIPTS.map(function (A) {
     return A.direction;
@@ -1907,3 +1946,5 @@ let newArray = cities.filter((element) => element.population > 3000000);
 console.log(newArray);
 
 //this is what abstraction is
+
+// lets do same for map
