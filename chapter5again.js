@@ -1880,6 +1880,47 @@ let arrayIs = [
   [5, 6],
 ];
 
+//learn about some method
+
+const numbera= [1, 2, 3, 4, 5];
+
+// Check if at least one element is greater than 3
+const isGreaterThanThree = numbera.some((element) => {
+  return element > 3;
+});
+
+
+
+
+
+console.log(isGreaterThanThree); // Output: true
+
+// const someArr = [1, 2, 3, 4, 5, 6];
+
+// function charNum() {
+//   if (someArr.some((e) => e < 4)) {
+//     return someArr;
+//   }
+//   return null;
+// }
+// console.log(charNum());
+//
+function characterScript(code) {
+  for (let script of SCRIPTS) {
+    if (
+      script.ranges.some(([from, to]) => {
+        return code >= from && code < to;
+      })
+    ) {
+      return script;
+    }
+  }
+  return null;
+}
+
+console.log(characterScript(121));
+
+//
 console.log(arrayIs.reduce((acu, [x, y]) => acu + x + y, 0));
 
 //reduce method
@@ -1979,5 +2020,4 @@ for (let script of SCRIPTS) {
 }
 console.log(Math.round(total / count));
 
-
-
+//STRING AND  CHARACTER CODES

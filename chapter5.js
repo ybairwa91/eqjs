@@ -2120,15 +2120,15 @@ const average =
 console.log(Math.trunc(average));
 
 //
-function average(array) {
+function averages(array) {
   return array.reduce((a, b) => a + b) / array.length;
 }
 
 console.log(
-  Math.round(average(SCRIPTS.filter((s) => s.living).map((s) => s.year)))
+  Math.round(averages(SCRIPTS.filter((s) => s.living).map((s) => s.year)))
 );
 console.log(
-  Math.round(average(SCRIPTS.filter((s) => !s.living).map((s) => s.year)))
+  Math.round(averages(SCRIPTS.filter((s) => !s.living).map((s) => s.year)))
 );
 
 //
@@ -2171,4 +2171,37 @@ function characterScript(code) {
 
 console.log(characterScript(121));
 
+//lets see emojis behaviour
+let atituCry = "😏😣";
+console.log(atituCry.length);
 
+console.log(atituCry[0]);
+console.log(atituCry.charCodeAt(0));
+console.log(atituCry.codePointAt(0));
+
+//The charCodeAt() method of String values returns an integer between 0 and 65535 representing the UTF-16 code unit at the given index.
+//charCodeAt==sirf kisi ek character ka unit code chahiye to use charCodeAt
+console.log("yogesh".charCodeAt(0));
+console.log("yogesh".charCodeAt(1));
+console.log("yogesh".charCodeAt(2));
+console.log("yogesh".charCodeAt(3));
+console.log("yogesh".charCodeAt(4));
+console.log("yogesh".charCodeAt(5));
+
+//charPointAt==pure string ka hi code chahiye then use it bro
+
+for (let element of "yogesh") {
+  console.log(element.codePointAt());
+}
+
+const icons = "☃★♲";
+
+console.log(icons.codePointAt(1));
+// Expected output: "9733"
+
+//RECOGNIZING TEXT
+
+function countBy(items,groupName){
+  let count=[];
+  for(let item of items)
+}
