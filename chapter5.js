@@ -2079,6 +2079,7 @@ console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0));
 console.log([1, 2, 3, 4].reduce((a, b) => a + b));
 
 //let use reduce twice
+// from,to get value after destruction so yes u can do it that way if u have array
 function characterCount(script) {
   return script.ranges.reduce((count, [from, to]) => {
     return count + (to - from);
@@ -2090,23 +2091,33 @@ console.log(
   })
 );
 
+//
+
 //reduce mthod
 console.log([1, 2, 3].reduce((a, b) => a - b, 1));
 console.log([1, 2, 3].reduce((a, b) => a / b));
 console.log([1, 2, 3].reduce((a, b) => a + b));
 console.log([1, 2, 3].reduce((a, b) => a + b, 10));
 
-
-
 //COMPOSABILITY
+
 let biggest = null;
 for (let script of SCRIPTS) {
   if (biggest == null || characterCount(biggest) < characterCount(script)) {
     biggest = script;
   }
 }
-
 console.log(biggest);
+
+const livingScriptAge = SCRIPTS.filter((s) => s.living).map((s) => s.year);
+console.log(livingScriptAge);
+//filter out and map only the years of script which are living
+//now the filter and map gives new array
+//lets again use reduce method to find average
+const average =
+  livingScriptAge.reduce((a, b) => a + b) / livingScriptAge.length;
+
+console.log(Math.trunc(average));
 
 //
 function average(array) {
@@ -2159,3 +2170,5 @@ function characterScript(code) {
 }
 
 console.log(characterScript(121));
+
+

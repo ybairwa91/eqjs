@@ -1908,9 +1908,11 @@ function characterCount(script) {
   }, 0);
 }
 
-for (let element of SCRIPTS) {
-  console.log(characterCount(element));
-}
+console.log(
+  SCRIPTS.reduce((a, b) => {
+    return characterCount(a) < characterCount(b) ? b : a;
+  })
+);
 // console.log(SCRIPTS.reduce((a,b)=>))
 
 console.log(
@@ -1947,4 +1949,35 @@ console.log(newArray);
 
 //this is what abstraction is
 
-// lets do same for map
+//composibility
+let biggest = null;
+for (let script of SCRIPTS) {
+  if (biggest == null || characterCount(biggest) < characterCount(script)) {
+    biggest = script;
+  }
+}
+
+console.log(biggest);
+
+//
+const livingScriptAge = SCRIPTS.filter((s) => s.living).map((s) => s.year);
+console.log(livingScriptAge);
+const average =
+  livingScriptAge.reduce((a, b) => a + b) / livingScriptAge.length;
+
+console.log(Math.trunc(average));
+
+//another way
+
+let total = 0,
+  count = 0;
+for (let script of SCRIPTS) {
+  if (script.living) {
+    total += script.year;
+    count++;
+  }
+}
+console.log(Math.round(total / count));
+
+
+
